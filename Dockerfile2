@@ -8,4 +8,3 @@ RUN echo ttt > /opt/$ARG_FILE
 COPY default.conf $DIR/conf.d/
 COPY nginx.conf $DIR
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
-
