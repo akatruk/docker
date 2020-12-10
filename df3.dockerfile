@@ -7,7 +7,7 @@ RUN \
     apt update && \
     apt install letsencrypt -y
 RUN \
-    letsencrypt certonly --webroot -m $email -w . -d ssl
+    letsencrypt certonly --webroot -m $email -w . -d ssl --agree-tos
 COPY default.conf $etc
 COPY index.html .
 USER root
