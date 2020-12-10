@@ -1,0 +1,11 @@
+ARG NG_VER
+FROM nginx:$NG_VER
+ARG ARG_FILE
+ARG NG_VER
+ENV DIR="$/etc/nginx"
+ENV NG_VERSION="$NG_VER"
+RUN echo ttt > /opt/$ARG_FILE
+COPY default.conf $DIR/conf.d/
+COPY nginx.conf $DIR
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+

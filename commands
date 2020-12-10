@@ -1,0 +1,16 @@
+docker build --tag=node:dc4 -f df2.dockerfile .
+docker run -p 80:3000 -v /Users/akatruk/dockers:/home/node node:d5
+
+# Delete all containers exept one
+docker rm $(docker ps -a | grep -v "7f70455b8ac8" | awk 'NR>1 {print $1}')
+
+# list all containers exect one
+docker ps -a --filter "name=web_marina"
+
+# delete all images exept one
+docker image prune -a --force --filter "label!=2d840844f8e7"
+
+# clean cache
+docker system prune -a
+
+docker ps --no-trunc
